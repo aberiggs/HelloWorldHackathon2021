@@ -6,8 +6,13 @@ public class Main {
         // User Input: Study or Create Card
         System.out.println("Do you want to study or create a new card ('S'/'C')");
         String studyOrCreate = scanner.nextLine();
-        if (studyOrCreate == "C") {
-
+        // TODO: wrap in while.
+        if (studyOrCreate.equalsIgnoreCase("C")) {
+            createCard();
+        } else if (studyOrCreate.equalsIgnoreCase("S")) {
+            study();
+        } else {
+            System.out.println("Invalid input!");
         }
 
         // SRS System: Levels/times
@@ -20,11 +25,17 @@ public class Main {
     }
     public static void createCard() {
         Scanner scanner = new Scanner(System.in);
+
         String cardName = scanner.nextLine();
+
         String question = scanner.nextLine();
+
         String answer = scanner.nextLine();
 
+        Card card = new Card(cardName, question, answer);
+    }
 
-        // Card card = new Card(question, answer);
+    public static void study() {
+
     }
 }
