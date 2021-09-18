@@ -50,7 +50,7 @@ public class Main {
 
         String answer = scanner.nextLine();
 
-        Card card = new Card(cardName, question, answer, date(), hours(), minutes());
+        Card card = new Card(cardName, question, answer, date(), hours(), minutes(), 0);
     }
 
     public static void study() {
