@@ -2,20 +2,17 @@ public class Card {
     static String question;
     static String answer;
     static String name;
-    static String date;
-    static int hour;
-    static int min;
+    static int date;
     static int srsLevel;
     static String reviewTimeAndDate;
 
-    public Card(String inputName, String inputQuestion, String inputAnswer, String inputDate, int inputHour, int inputMin, int starterSRSLevel)
+    public Card(String inputName, String inputQuestion, String inputAnswer, int inputDate, int starterSRSLevel)
     {
         question = inputQuestion;
         answer = inputAnswer;
         name = inputName;
         date = inputDate;
-        hour = inputHour;
-        min = inputMin;
+
         srsLevel = starterSRSLevel;
         reviewTimeAndDate = "";
     }
@@ -31,18 +28,11 @@ public class Card {
     {
         return name;
     }
-    public static String getDate()
+    public static int getDate()
     {
         return date;
     }
-    public static int getHour()
-    {
-        return hour;
-    }
-    public static int getMin()
-    {
-        return min;
-    }
+
     public static int getSrsLevel()
     {
         return srsLevel;
@@ -64,17 +54,9 @@ public class Card {
     {
         name = inputName;
     }
-    public static void setDate(String inputDate)
+    public static void setDate(int inputDate)
     {
         date = inputDate;
-    }
-    public static void setHour(int inputHour)
-    {
-        hour = inputHour;
-    }
-    public static void setMin(int inputMin)
-    {
-        min = inputMin;
     }
     public static void setSrsLevel(int inputSrsLevel)
     {

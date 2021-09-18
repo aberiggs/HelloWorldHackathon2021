@@ -17,7 +17,7 @@ public class Main {
                 System.out.println("You are creating a card");
                 createCard();
             } else if (studyOrCreate.equals("S")) {
-                //study();
+                study();
                 System.out.println("You are studying");
             } else {
                 System.out.println("Invalid input!");
@@ -43,12 +43,15 @@ public class Main {
         System.out.println("Enter the answer for the question: ");
         String answer = scanner.nextLine();
 
-        Card card = new Card(cardName, question, answer, Date.date(), Date.hours(), Date.minutes(), 0);
+        Card card = new Card(cardName, question, answer, Date.dateInMin(), 0);
         jsonParsing.addCardToJson(card);
     }
 
     public static void study() {
         // TODO
+        int cardTotalMin = Date.dateInMin();
+
+        System.out.println(cardTotalMin);
     }
 
 }
