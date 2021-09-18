@@ -1,3 +1,6 @@
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 import java.sql.SQLOutput;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -6,7 +9,7 @@ import java.time.LocalDateTime;
 
 public class Main {
     static DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ParseException {
         Scanner scanner = new Scanner(System.in);
         // User Input: Study or Create Card
         while (true) {
@@ -43,15 +46,41 @@ public class Main {
         System.out.println("Enter the answer for the question: ");
         String answer = scanner.nextLine();
 
-        Card card = new Card(cardName, question, answer, Date.dateInMin(), 0);
+        String currentTime = String.valueOf(Date.dateInMin());
+
+        Card card = new Card(cardName, question, answer, currentTime, "0");
         jsonParsing.addCardToJson(card);
     }
 
-    public static void study() {
-        // TODO
-        int cardTotalMin = Date.dateInMin();
+    public static void study() throws IOException, ParseException {
+        Scanner scanner = new Scanner(System.in);
+        int nowTotalMin = Date.dateInMin();
+        String cardName = jsonParsing.needToStudy(nowTotalMin);
+        if (cardName.equals(null)) {
+            System.out.println("No cards to review!");
+            return;
+        }
+        String[] cardData = jsonParsing.readCardFromJson(cardName);
+        // cardData looks like {cardName, question, answer, reviewTimeAndDate, srsLevel}
+        System.out.println("Question: " + cardData[1]);
+        System.out.println("Press enter when you have thought of the answer.");
+        scanner.nextLine();
+        System.out.println("The answer is: " + cardData[2]);
 
-        System.out.println(cardTotalMin);
+        // TODO: Get user's answer and print it out under the actual answer so the user can see the difference
+
+        // TODO: Wrap in while
+        System.out.println("Was your answer correct? (Y/N)");
+        String answerCorrect = scanner.nextLine().toUpperCase();
+        if (answerCorrect.equals("Y")) {
+            // increment
+        } else if (answerCorrect.equals("N")) {
+            // increment
+        } else {
+            System.out.println("Invalid input!");
+        }
+
+
     }
 
 }
