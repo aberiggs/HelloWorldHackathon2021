@@ -20,16 +20,4 @@ public class Card {
     {
         return name;
     }
-    public static void setQuestion(String inputQuestion)
-    {
-        question = inputQuestion;
-    }
-    public static void setAnswer(String inputAnswer)
-    {
-        answer = inputAnswer;
-    }
-    public static void setName(String inputName)
-    {
-        name = inputName;
-    }
 }
