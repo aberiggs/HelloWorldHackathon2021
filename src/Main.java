@@ -36,7 +36,8 @@ public class Main {
         // Get current time and date
 
         // Create Object Card (question, answer, timeReviewUnlocks, srs level)
-        getTimeAndDate();
+        //getTimeAndDate();
+        hours();
 
     }
 
@@ -55,7 +56,7 @@ public class Main {
     public static void study() {
         //
     }
-    public static String getTimeAndDate(){
+    public static String Date(){
         LocalDateTime now= LocalDateTime.now();
         String nowDate = now.format(formatter);
         String partOne = nowDate.substring(0, 10);
@@ -63,9 +64,28 @@ public class Main {
         String hoursInt = partTwo.substring(0, 2);
         String minutesInt = partTwo.substring(3);
         nowDate = partOne + " " + partTwo;
-        System.out.println(hoursInt);
-        System.out.println(minutesInt);
         System.out.println(nowDate);
         return nowDate;
+    }
+
+    public static String hours() {
+        LocalDateTime now= LocalDateTime.now();
+        String nowDate = now.format(formatter);
+        String partOne = nowDate.substring(0, 10);
+        String partTwo = nowDate.substring(11, 16);
+        String hoursInt = partTwo.substring(0, 2);
+        System.out.println(hoursInt);
+        return hoursInt;
+
+    }
+
+    public static String minutes() {
+        LocalDateTime now= LocalDateTime.now();
+        String nowDate = now.format(formatter);
+        String partOne = nowDate.substring(0, 10);
+        String partTwo = nowDate.substring(11, 16);
+        String minutesInt = partTwo.substring(3);
+        System.out.println(minutesInt);
+        return minutesInt;
     }
 }
