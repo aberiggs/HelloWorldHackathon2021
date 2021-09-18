@@ -43,42 +43,12 @@ public class Main {
         System.out.println("Enter the answer for the question: ");
         String answer = scanner.nextLine();
 
-        Card card = new Card(cardName, question, answer, date(), hours(), minutes(), 0);
+        Card card = new Card(cardName, question, answer, Date.date(), Date.hours(), Date.minutes(), 0);
         jsonParsing.addCardToJson(card);
     }
 
     public static void study() {
         // TODO
     }
-    public static String date(){
-        LocalDateTime now= LocalDateTime.now();
-        String nowDate = now.format(formatter);
-        String partOne = nowDate.substring(0, 10);
-        String partTwo = nowDate.substring(11, 16);
-        String hoursInt = partTwo.substring(0, 2);
-        String minutesInt = partTwo.substring(3);
-        nowDate = partOne + " " + partTwo;
-        return nowDate;
-    }
 
-    public static int hours() {
-        LocalDateTime now= LocalDateTime.now();
-        String nowDate = now.format(formatter);
-        String partOne = nowDate.substring(0, 10);
-        String partTwo = nowDate.substring(11, 16);
-        String hoursInt = partTwo.substring(0, 2);
-        int hour = Integer.parseInt(hoursInt);
-        return hour;
-
-    }
-
-    public static int minutes() {
-        LocalDateTime now = LocalDateTime.now();
-        String nowDate = now.format(formatter);
-        String partOne = nowDate.substring(0, 10);
-        String partTwo = nowDate.substring(11, 16);
-        String minutesInt = partTwo.substring(3);
-        int minutes = Integer.parseInt(minutesInt);
-        return minutes;
-    }
 }
