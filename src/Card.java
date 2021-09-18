@@ -1,10 +1,12 @@
 public class Card {
     static String question;
     static String answer;
-    public Card(String inputQuestion, String inputAnswer)
+    static String name;
+    public Card(String inputName, String inputQuestion, String inputAnswer)
     {
         question = inputQuestion;
         answer = inputAnswer;
+        name = inputName;
     }
     public static String getQuestion()
     {
@@ -13,5 +15,9 @@ public class Card {
     public static String getAnswer()
     {
         return answer;
+    }
+    public static String getName()
+    {
+        return name;
     }
 }
