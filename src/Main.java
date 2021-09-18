@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -6,7 +7,7 @@ public class Main {
         // User Input: Study or Create Card
         System.out.println("Do you want to study or create a new card ('S'/'C')");
         String studyOrCreate = scanner.nextLine();
-
+        System.out.println("J");
         if (studyOrCreate == "C") {
 
         }
