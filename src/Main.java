@@ -73,7 +73,22 @@ public class Main {
         System.out.println("Was your answer correct? (Y/N)");
         String answerCorrect = scanner.nextLine().toUpperCase();
         if (answerCorrect.equals("Y")) {
-            // increment
+            int increment = 0;
+            switch (cardData[4]) {
+                case 0:
+                    increment += 60;
+                    break;
+                case 1:
+                    increment += 120;
+                    break;
+                case 2:
+                    increment += 240;
+                    break;
+                case 3:
+                    increment += 480;
+                    break;
+            }
+            Card card = new Card(cardData[0], cardData[1], cardData[2], Date.dateInMin() + increment, cardData[4] + 1);
         } else if (answerCorrect.equals("N")) {
             // increment
         } else {
