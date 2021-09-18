@@ -53,7 +53,7 @@ public class Main {
     }
 
     public static void study() {
-
+        //
     }
     public static String getTimeAndDate(){
         LocalDateTime now= LocalDateTime.now();
