@@ -21,7 +21,6 @@ public class Main {
                 createCard();
             } else if (studyOrCreate.equals("S")) {
                 study();
-                System.out.println("You are studying");
             } else {
                 System.out.println("Invalid input!");
             }
@@ -74,7 +73,7 @@ public class Main {
         String answerCorrect = scanner.nextLine().toUpperCase();
         if (answerCorrect.equals("Y")) {
             int increment = 0;
-            switch (cardData[4]) {
+            switch (Integer.parseInt(cardData[4])) {
                 case 0:
                     increment += 60;
                     break;
@@ -88,7 +87,10 @@ public class Main {
                     increment += 480;
                     break;
             }
-            Card card = new Card(cardData[0], cardData[1], cardData[2], Date.dateInMin() + increment, cardData[4] + 1);
+            int tempNum = Integer.parseInt(cardData[4]) + 1;
+            String card_Data = String.valueOf(tempNum);
+            Card card = new Card(cardData[0], cardData[1], cardData[2], String.valueOf(Date.dateInMin() + increment), card_Data);
+            jsonParsing.addCardToJson(card);
         } else if (answerCorrect.equals("N")) {
             // increment
         } else {
