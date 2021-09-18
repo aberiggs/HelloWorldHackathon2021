@@ -50,13 +50,13 @@ public class Main {
 
         String answer = scanner.nextLine();
 
-        Card card = new Card(cardName, question, answer);
+        Card card = new Card(cardName, question, answer, date(), hours(), minutes());
     }
 
     public static void study() {
         //
     }
-    public static String Date(){
+    public static String date(){
         LocalDateTime now= LocalDateTime.now();
         String nowDate = now.format(formatter);
         String partOne = nowDate.substring(0, 10);
@@ -68,24 +68,26 @@ public class Main {
         return nowDate;
     }
 
-    public static String hours() {
+    public static int hours() {
         LocalDateTime now= LocalDateTime.now();
         String nowDate = now.format(formatter);
         String partOne = nowDate.substring(0, 10);
         String partTwo = nowDate.substring(11, 16);
         String hoursInt = partTwo.substring(0, 2);
-        System.out.println(hoursInt);
-        return hoursInt;
+        int hour = Integer. parseInt(hoursInt);
+        System.out.println(hour);
+        return hour;
 
     }
 
-    public static String minutes() {
+    public static int minutes() {
         LocalDateTime now= LocalDateTime.now();
         String nowDate = now.format(formatter);
         String partOne = nowDate.substring(0, 10);
         String partTwo = nowDate.substring(11, 16);
         String minutesInt = partTwo.substring(3);
-        System.out.println(minutesInt);
-        return minutesInt;
+        int minutes = Integer. parseInt(minutesInt);
+        System.out.println(minutes);
+        return minutes;
     }
 }

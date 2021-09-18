@@ -2,11 +2,17 @@ public class Card {
     static String question;
     static String answer;
     static String name;
-    public Card(String inputName, String inputQuestion, String inputAnswer)
+    static String date;
+    static int hour;
+    static int min;
+    public Card(String inputName, String inputQuestion, String inputAnswer, String inputDate, int inputHour, int inputMin)
     {
         question = inputQuestion;
         answer = inputAnswer;
         name = inputName;
+        date = inputDate;
+        hour = inputHour;
+        min = inputMin;
     }
     public static String getQuestion()
     {
