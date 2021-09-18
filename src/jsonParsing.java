@@ -10,15 +10,15 @@ import java.util.Iterator;
 
 public class jsonParsing {
     public static void addCardToJson(Card card) {
+        // TODO: Check if file exists
         JSONObject cardObj = new JSONObject();
         JSONParser parser = new JSONParser();
         try (Reader reader = new FileReader("./cards.json");) {
             JSONObject cards = (JSONObject) parser.parse(reader);
-            // cardObj.put("name", card.getName());
             cardObj.put("question", card.getQuestion());
             cardObj.put("answer", card.getAnswer());
-            // cardObj.put("reviewTimeAndDate", card.getReviewTimeAndDate);
-            // cardObj.put("srsLevel", card.getSrsLevel);
+            cardObj.put("reviewTimeAndDate", card.getReviewTimeAndDate());
+            cardObj.put("srsLevel", card.getSrsLevel());
 
             cards.put(card.getName(), cardObj);
 

@@ -6,6 +6,8 @@ public class Card {
     static int hour;
     static int min;
     static int srsLevel;
+    static String reviewTimeAndDate;
+
     public Card(String inputName, String inputQuestion, String inputAnswer, String inputDate, int inputHour, int inputMin, int starterSRSLevel)
     {
         question = inputQuestion;
@@ -15,6 +17,7 @@ public class Card {
         hour = inputHour;
         min = inputMin;
         srsLevel = starterSRSLevel;
+        reviewTimeAndDate = "";
     }
     public static String getQuestion()
     {
@@ -44,6 +47,11 @@ public class Card {
     {
         return srsLevel;
     }
+    public static String getReviewTimeAndDate()
+    {
+        return reviewTimeAndDate;
+    }
+
     public static void setQuestion(String inputQuestion)
     {
         question = inputQuestion;
