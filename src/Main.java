@@ -42,6 +42,7 @@ public class Main {
         System.out.println("Enter the answer for the question: ");
         String answer = scanner.nextLine();
 
+        // dateInMin() is going to have an issue of edge case at end of the year that will cause issues.
         String currentTime = String.valueOf(Date.dateInMin());
 
         Card card = new Card(cardName, question, answer, currentTime, "0");
