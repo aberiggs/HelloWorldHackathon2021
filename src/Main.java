@@ -1,11 +1,8 @@
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 import java.util.Scanner;
-import java.time.LocalDateTime;
 
 public class Main {
     static DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
@@ -55,7 +52,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int nowTotalMin = Date.dateInMin();
         String cardName = jsonParsing.needToStudy(nowTotalMin);
-        if (cardName.equals(null)) {
+        if (cardName == null) {
             System.out.println("No cards to review!");
             return;
         }
@@ -68,36 +65,54 @@ public class Main {
 
         // TODO: Get user's answer and print it out under the actual answer so the user can see the difference
 
-        // TODO: Wrap in while
-        System.out.println("Was your answer correct? (Y/N)");
-        String answerCorrect = scanner.nextLine().toUpperCase();
-        if (answerCorrect.equals("Y")) {
-            int increment = 0;
-            switch (Integer.parseInt(cardData[4])) {
-                case 0:
-                    increment += 60;
-                    break;
-                case 1:
-                    increment += 120;
-                    break;
-                case 2:
-                    increment += 240;
-                    break;
-                case 3:
-                    increment += 480;
-                    break;
+        int increment = 0;
+        int srsLevel = Integer.parseInt(cardData[4]);
+        int nextSrsLevel = Integer.parseInt(cardData[4]);
+        while (true) {
+            System.out.println("Was your answer correct? (Y/N)");
+            String answerCorrect = scanner.nextLine().toUpperCase();
+            if (answerCorrect.equals("Y")) {
+                nextSrsLevel += 1;
+                break;
+            } else if (answerCorrect.equals("N")) {
+                if (srsLevel == 0) {
+
+                } else {
+                    srsLevel--;
+                    nextSrsLevel = srsLevel;
+                }
+                break;
+            } else {
+                System.out.println("Invalid input!");
             }
-            int tempNum = Integer.parseInt(cardData[4]) + 1;
-            String card_Data = String.valueOf(tempNum);
-            Card card = new Card(cardData[0], cardData[1], cardData[2], String.valueOf(Date.dateInMin() + increment), card_Data);
-            jsonParsing.addCardToJson(card);
-        } else if (answerCorrect.equals("N")) {
-            // increment
-        } else {
-            System.out.println("Invalid input!");
         }
 
+        switch (srsLevel) {
+            case 0:
+                increment += 60;
+                break;
+            case 1:
+                increment += 120;
+                break;
+            case 2:
+                increment += 240;
+                break;
+            case 3:
+                increment += 480;
+                break;
+            default:
+                System.out.println("Congrats, you have already mastered this card!");
+                increment += 1000000;
+                // TODO: Remove card from json
+                break;
+        }
+        if (srsLevel+1 > 3) {
+            // TODO: Remove card from json
+        }
+
+        Card card = new Card(cardData[0], cardData[1], cardData[2], String.valueOf(Date.dateInMin() + increment), String.valueOf(nextSrsLevel));
+        jsonParsing.addCardToJson(card);
 
     }
-
+    // TODO: Allow users to edit flashcards
 }

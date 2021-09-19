@@ -36,24 +36,6 @@ public class Card {
     {
         return reviewTimeAndDate;
     }
-
-    public static void setQuestion(String inputQuestion)
-    {
-        question = inputQuestion;
-    }
-    public static void setAnswer(String inputAnswer)
-    {
-        answer = inputAnswer;
-    }
-    public static void setName(String inputName)
-    {
-        name = inputName;
-    }
-
-    public static void setSrsLevel(String inputSrsLevel)
-    {
-        srsLevel = inputSrsLevel;
-    }
 }
 
 
