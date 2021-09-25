@@ -7,12 +7,11 @@ public class Card {
 
     public Card(String inputName, String inputQuestion, String inputAnswer, String inputDate, String starterSRSLevel)
     {
-        question = inputQuestion;
-        answer = inputAnswer;
-        name = inputName;
-
-        srsLevel = starterSRSLevel;
-        reviewTimeAndDate = inputDate;
+        this.question = inputQuestion;
+        this.answer = inputAnswer;
+        this.name = inputName;
+        this.srsLevel = starterSRSLevel;
+        this.reviewTimeAndDate = inputDate;
     }
     public String getQuestion()
     {
