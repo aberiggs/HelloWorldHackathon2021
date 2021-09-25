@@ -1,10 +1,9 @@
 public class Card {
-    static String question;
-    static String answer;
-    static String name;
-
-    static String srsLevel;
-    static String reviewTimeAndDate;
+    String question;
+    String answer;
+    String name;
+    String srsLevel;
+    String reviewTimeAndDate;
 
     public Card(String inputName, String inputQuestion, String inputAnswer, String inputDate, String starterSRSLevel)
     {
@@ -15,24 +14,23 @@ public class Card {
         srsLevel = starterSRSLevel;
         reviewTimeAndDate = inputDate;
     }
-    public static String getQuestion()
+    public String getQuestion()
     {
         return question;
     }
-    public static String getAnswer()
+    public String getAnswer()
     {
         return answer;
     }
-    public static String getName()
+    public String getName()
     {
         return name;
     }
-
-    public static String getSrsLevel()
+    public String getSrsLevel()
     {
         return srsLevel;
     }
-    public static String getReviewTimeAndDate()
+    public String getReviewTimeAndDate()
     {
         return reviewTimeAndDate;
     }
